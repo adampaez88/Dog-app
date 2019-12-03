@@ -1,0 +1,3 @@
+class Breed < ApplicationRecord
+    
+end
