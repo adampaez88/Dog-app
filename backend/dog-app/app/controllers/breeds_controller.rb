@@ -1,12 +1,12 @@
 class BreedsController < ApplicationController
     def index 
         breeds = Breed.all 
-        render json: breeds, include: [:dogs]
+        render json: breeds
     end 
 
     def show 
         breed = Breed.find(params[:id])
-        render json: breed, include: [:dogs] 
+        render json: breed
     end 
 
     def create 

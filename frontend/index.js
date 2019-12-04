@@ -20,9 +20,13 @@ function showDogs(dogs){
 
         dogBreed.innerText = dog.breed 
         dogPic.src = dog.image_url 
-        dogInfo.innerHTML = `<a>${dog.info}</a>`
+        dogInfo.innerHTML = `<a href=${dog.info}>This dog's Info</a>`
 
-
+        dogCard.addEventListener('click', (event) => {
+            fetch(`http://localhost:3000/breeds${dog.info}`, {
+                method: 'VIEW' 
+            }).then(window.location = `${dog.info}`)
+        })
         dogSection.appendChild(dogCard)  
         dogCard.append(dogPic, dogBreed, dogInfo)
     })
