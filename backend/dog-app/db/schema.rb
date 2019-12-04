@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_195831) do
     t.string "breed"
     t.text "info"
     t.string "image_url"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
