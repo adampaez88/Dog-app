@@ -54,6 +54,10 @@ header {
 
 }
 
+input {
+    background-color: white;
+}
+
 #submit-button {
     color: hsl(0, 100%, 0%);
     border-radius: 10%;

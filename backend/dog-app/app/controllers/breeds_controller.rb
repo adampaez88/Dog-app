@@ -13,7 +13,8 @@ class BreedsController < ApplicationController
         breed = Breed.create(
             breed: params[:breed],
             info: params[:info],
-            image_url: params[:image_url]
+            image_url: params[:image_url],
+            description: params[:description]
         )
         redirect_to 'https://localhost:3001'
     end 

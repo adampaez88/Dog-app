@@ -4,6 +4,7 @@ class CreateBreeds < ActiveRecord::Migration[6.0]
       t.string :breed
       t.text :info 
       t.string :image_url 
+      t.string :description 
       t.timestamps
     end
   end
