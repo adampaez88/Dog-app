@@ -13,9 +13,7 @@ function handleResponse(response){
 
 const dogSection = document.querySelector('#dog-section')
 const dogForm = document.querySelector('#dog-form')
-
 function showDogs(dogs){
-
     dogForm.addEventListener('submit', (event) => {
         event.preventDefault()
 
@@ -36,32 +34,44 @@ function showDogs(dogs){
                 'image_url': aDogsPic
             })
         })
-
     })
 
     dogs.forEach(dog => {
         const dogCard = document.createElement('div')
+        dogCard.id = 'dog-div'
         const dogBreed = document.createElement('h2')
         const dogPic = document.createElement('img')
         const dogInfo = document.createElement('h5')
-        dogCard.id = 'dog-div'
+        const $deleteDog = document.createElement('button')
 
+        
+        $deleteDog.innerText = 'Delete'
         dogBreed.innerText = dog.breed 
         dogPic.src = dog.image_url 
         dogInfo.innerHTML = `<a href=description.html?id=${dog.id}>This dog's Description</a>`
-
-        dogCard.addEventListener('click', (event) => {
-            fetch(`http://localhost:3000/breeds${dog.info}`, {
-                method: 'VIEW' 
-            }).then(window.location = `${dog.info}`)
-        })
-
         
-        dogSection.appendChild(dogCard)  
-        dogCard.append(dogPic, dogBreed, dogInfo)
+        dogCard.addEventListener('click', (event) => {
+            if (event.target === $deleteDog){
+                deleteDogFunction(dog)
+            } else {
+                fetch(`http://localhost:3000/breeds${dog.info}`, {
+                        method: 'VIEW' 
+                    }).then(window.location = `${dog.info}`)
+            }
+            })
+            
+            dogSection.appendChild(dogCard)  
+            dogCard.append(dogPic, dogBreed, dogInfo, $deleteDog)        
     })
+        
+    function deleteDogFunction(dog){
+        event.preventDefault()
+        event.target.parentNode.remove()
+
+        fetch(`http://localhost:3000/breeds/${dog.id}`, {
+            method: 'DELETE'
+        }) 
+    }
+
+
 }
-
-// function dogFormFunction(dogs){
-
-// }

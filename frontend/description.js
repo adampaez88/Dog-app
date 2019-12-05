@@ -79,7 +79,6 @@ function showDescription(dogs){
                     const commentsId = event.target.parentNode.id 
                     event.target.parentNode.remove()
 
-                    
                 fetch(`http://localhost:3000/comments/${commentsId}`, {
                     method: 'DELETE' 
                 })

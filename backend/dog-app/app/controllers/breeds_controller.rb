@@ -27,6 +27,12 @@ class BreedsController < ApplicationController
         )
         redirect_to 'https://localhost:3001'
     end 
-
+    
+    def destroy 
+        breed = Breed.find(params[:id])
+        breed.destroy
+        render json: breed 
+        redirect_to 'https://localhost:3001'
+    end 
     
 end
