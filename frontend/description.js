@@ -6,37 +6,39 @@ fetch(`http://localhost:3000/breeds/${id}`)
     .then(response => response.json())
     .then(showDescription)
 
-
+const home = document.querySelector('#home')
 const form = document.querySelector('#comment-form')
 const list = document.querySelector('#comment-list')
 const commentInput = document.querySelector('#comment_input')
+const descriptionContainer = document.querySelector('#container')
 function showDescription(dogs){
-    const $updateButton = document.createElement('button')
-    $updateButton.innerText = 'Update'
-
+    home.innerHTML = `<a href='http://localhost:3001/'>Home</a>`
     const dogDescription = document.createElement('h1')
+    const dogName = document.createElement('h1')
 
-    
+    console.log(dogs)
+    dogName.innerText = dogs.breed
     dogDescription.id = 'description-of-dog' 
     dogDescription.innerText = dogs.description 
-    body.prepend(dogDescription)
-    dogDescription.appendChild($updateButton)
-
-    $updateButton.addEventListener('click', (event) => {
-        fetch(`http://localhost:3000/breeds/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                // 'description': 
-
+    descriptionContainer.append(dogDescription)
+    descriptionContainer.prepend(dogName)
+    
+    dogDescription.setAttribute('contenteditable', 'true')
+    dogDescription.addEventListener('input', (event) => {
+            event.preventDefault()
+            fetch(`http://localhost:3000/breeds/${id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                    },
+                body: JSON.stringify({
+                    'description': event.target.innerText
+                })
             })
         })
-    })
-
-    form.addEventListener('submit', (event) => {
+     
+        form.addEventListener('submit', (event) => {
         event.preventDefault()
 
         const formData = new FormData(event.target)
@@ -73,6 +75,7 @@ function showDescription(dogs){
                 
                 const $deleteButton = document.createElement('button')
                 $deleteButton.innerText = 'Delete'
+                $deleteButton.id = 'delete-button'
                 
                 
                 $deleteButton.addEventListener('click', (event) => {
