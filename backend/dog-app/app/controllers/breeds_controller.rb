@@ -19,12 +19,9 @@ class BreedsController < ApplicationController
         redirect_to 'https://localhost:3001'
     end 
 
-    def update 
+    def update
         breed = Breed.find(params[:id])
-        breed.update( breed: params[:breed],
-            info: params[:info],
-            image_url: params[:image_url]
-        )
+        breed.update(breed_params)
         redirect_to 'https://localhost:3001'
     end 
     
@@ -34,5 +31,9 @@ class BreedsController < ApplicationController
         render json: breed 
         redirect_to 'https://localhost:3001'
     end 
-    
+    private 
+
+    def breed_params
+        params.permit(:breed, :info, :image_url, :description)
+    end 
 end

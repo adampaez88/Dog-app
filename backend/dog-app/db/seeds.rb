@@ -11,17 +11,17 @@ Breed.destroy_all
 Breed.create(breed: 'Akita', 
             info: 'https://www.akc.org/dog-breeds/akita/', 
             image_url: 'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/13001904/Akita-On-White-01.jpg',
-            description: 'small'
+            description: 'Large, Courageous, Dignified, Profoundly Loyal'
         )
 Breed.create(breed: 'Shiba-Inu', 
             info: 'https://www.akc.org/dog-breeds/shiba-inu/', 
             image_url: 'https://i.pinimg.com/originals/1a/ac/af/1aacaff36d04df6b1d189c6f22b4ceb9.jpg',
-            description: 'small'
+            description: 'Small, Alert, Active, Attentive, and Sassy' 
         )
 Breed.create(breed: 'Blue Heeler/Australian Cattle Dog', 
             info: 'https://www.akc.org/dog-breeds/australian-cattle-dog/', 
             image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnfl_vVQAd0pwR8xDm5NLYqPJCvS9SCWDzi_4UrDEHiUXkEhlJ&s',
-            description: 'small'
+            description: 'Alert, Curious, Pleasant, Loyal'
         )
 Breed.create(breed: 'Golden Retriever', 
             info: 'https://www.akc.org/dog-breeds/golden-retriever/', 
