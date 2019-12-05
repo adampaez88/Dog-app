@@ -55,6 +55,8 @@ function showDogs(dogs){
                 method: 'VIEW' 
             }).then(window.location = `${dog.info}`)
         })
+
+        
         dogSection.appendChild(dogCard)  
         dogCard.append(dogPic, dogBreed, dogInfo)
     })
