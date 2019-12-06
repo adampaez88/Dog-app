@@ -70,13 +70,13 @@ function showDogs(dogs){
                 deleteDogFunction(dog)
             } else {
                 fetch(`http://localhost:3000/breeds${dog.info}`, {
-                        method: 'VIEW' 
-                    }).then(window.location = `${dog.info}`)
-            }
-            })
+                     method: 'VIEW' 
+                }).then(window.location = `${dog.info}`)
+             }
+         })
             
-            dogSection.appendChild(dogCard)  
-            dogCard.append(dogPic, dogBreed, dogInfo, $deleteDog)        
+        dogSection.appendChild(dogCard)  
+        dogCard.append(dogPic, dogBreed, dogInfo, $deleteDog)        
     })
         
     function deleteDogFunction(dog){
