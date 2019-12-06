@@ -47,13 +47,17 @@ table {
 
 * {
     box-sizing: border-box;
-    background-color: rgb(230, 221, 221);
 }
 
 header {
     font-size: 4rem;
     font-weight: 600;
     text-align: center;
+}
+
+body {
+    background: url('field.jpeg') center fixed no-repeat;
+    background-size: 100% 100%;
 }
 
 #dog-form-div {
